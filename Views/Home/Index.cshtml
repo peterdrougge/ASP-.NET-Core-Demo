@@ -1,0 +1,16 @@
+@using ASPNETCoreRC2Demo
+@using Microsoft.Extensions.Options
+@inject IOptions<MyAppSettings> options
+@addTagHelper *, ASPNETCoreRC2Demo
+<div>
+    <h3>view component</h3>
+    @await Component.InvokeAsync("Demo")
+</div>
+<div condition="!String.IsNullOrWhiteSpace(options.Value.aspnetcorerc2demo)">
+    <h1>We got secret values..</h1>
+</div>
+<div>
+    <h1>Hello ASP.NET Core RC2, it's @DateTime.Now</h1>
+    <h2>in ViewData we got @ViewData["aspnetcorerc2demo"]</h2>
+    <h2>injected we got @options.Value.aspnetcorerc2demo</h2>
+</div>
